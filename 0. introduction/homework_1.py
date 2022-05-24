@@ -1,13 +1,13 @@
 """ID посылки: 68573968."""
 
 
-def calculate_distance(street_lenght: int, numbers: list) -> list:
+def calculate_distance(street_length: int, numbers: list) -> list:
     """Расчитывает дистанцию от пустого участка."""
 
-    dist: int = street_lenght
-    result: list = [0]*street_lenght
+    dist = street_length
+    result = [0] * street_length
 
-    for i in range(0, street_lenght):
+    for i in range(0, street_length):
         if numbers[i] == 0:
             dist = 0
         else:
@@ -17,18 +17,18 @@ def calculate_distance(street_lenght: int, numbers: list) -> list:
     return result
 
 
-def main(street_lenght: int, numbers: list) -> str:
+def main(street_length: int, numbers: list) -> str:
     """Рассчитывает минимальное расстояние до пустых участков."""
 
     # считаем дистанцию с левой стороны
-    dist_left = calculate_distance(street_lenght, numbers)
+    dist_left = calculate_distance(street_length, numbers)
     # считаем дистанцию с правой стороны
-    dist_right = calculate_distance(street_lenght, numbers[::-1])[::-1]
+    dist_right = calculate_distance(street_length, numbers[::-1])[::-1]
 
     result = []
 
     # отбираем минимальные значения
-    for i in range(0, street_lenght):
+    for i in range(0, street_length):
         if dist_left[i] < dist_right[i]:
             result.append(str(dist_left[i]))
         else:
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     assert(main(5, [0, 1, 4, 9, 0])) == ['0', '1', '2', '1', '0']
 
     print('Введите длину улицы: ')
-    street_lenght = int(input())
+    street_length = int(input())
     print('Укажите номера участков: ')
     numbers = list(map(int, input().split()))
-    print(' '.join(main(street_lenght, numbers)))
+    print(' '.join(main(street_length, numbers)))
