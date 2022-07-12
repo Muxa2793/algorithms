@@ -1,7 +1,7 @@
 """ID: 69327969"""
 
 
-def broken_search(nums, target):
+def broken_search(nums: list[int], target: int):
     """Реализация бинарного поиска для сломанного массива."""
 
     start = 0

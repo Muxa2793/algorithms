@@ -1,7 +1,7 @@
 """ID: 69370361"""
 
 
-def partition(arr, left, right):
+def partition(arr: list[list], left: int, right: int):
     pivot = arr[left]
     start = left + 1
     end = right - 1
@@ -19,11 +19,11 @@ def partition(arr, left, right):
             return end
 
 
-def quick_sort(arr, left, right):
+def quick_sort(arr: list[list], left: int, right: int):
     if left < right - 1:
         pivot = partition(arr, left, right)
         quick_sort(arr, left, pivot)
-        quick_sort(arr, pivot+1, right)
+        quick_sort(arr, pivot + 1, right)
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
     for _ in range(n):
         student = input().split()
 
-        # расставляем показатели в том порядке 
+        # расставляем показатели в том порядке
         # в котором они будут сортироваться
         tasks = -int(student[1])
         fine = int(student[2])
